@@ -6,6 +6,68 @@ spec:
   destination:
     namespace: helm-guestbook
   source:
-    path: my-app
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    path: helm-guestbook
+    repoURL: https://github.com/manjeetyadav19/argocd-example-apps.git
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-hooks
+spec:
+  destination:
+    namespace: helm-hooks
+  source:
+    path: helm-hooks
+    repoURL: https://github.com/manjeetyadav19/argocd-example-apps.git
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-kustomize
+spec:
+  destination:
+    namespace: kustomize-guestbook
+  source:
+    path: kustomize-guestbook
+    repoURL: https://github.com/manjeetyadav19/argocd-example-apps.git
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-sync-waves
+spec:
+  destination:
+    namespace: sync-waves
+  source:
+    path: sync-waves
+    repoURL: https://github.com/manjeetyadav19/argocd-example-apps.git
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 
