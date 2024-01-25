@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+spec:
+  destination:
+    namespace: helm-guestbook
+  source:
+    path: my-app
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+
