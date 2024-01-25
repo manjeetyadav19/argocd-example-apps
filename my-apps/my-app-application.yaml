@@ -32,7 +32,7 @@ spec:
     server: https://kubernetes.default.svc
   project: manjeet
   source:
-    path: helm-hooks
+    path: helm-hooks/
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
     targetRevision: HEAD
   syncPolicy:
@@ -56,7 +56,7 @@ spec:
     server: https://kubernetes.default.svc    
   project: manjeet
   source:
-    path: kustomize-guestbook
+    path: kustomize-guestbook/
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
     targetRevision: HEAD
   syncPolicy:
@@ -79,7 +79,7 @@ spec:
     server: https://kubernetes.default.svc  
   project: manjeet
   source:
-    path: sync-waves
+    path: sync-waves/
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
     targetRevision: HEAD
   syncPolicy:
