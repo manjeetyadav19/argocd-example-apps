@@ -1,38 +1,43 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  labels:
-    argocd.argoproj.io/instance: my-app
   name: my-app
+  namespace: argocd
 spec:
   destination:
     namespace: helm-guestbook
-  project: default
+    server: https://kubernetes.default.svc
+  project: manjeet
   source:
-    path: helm-guestbook
+    path: helm-guestbook/
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
+    targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
-
-
+      
 ---
 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  labels:
-    argocd.argoproj.io/instance: my-app
   name: my-app-hooks
+  namespace: argocd  
 spec:
   destination:
     namespace: helm-hooks
-  project: default
+    server: https://kubernetes.default.svc
+  project: manjeet
   source:
     path: helm-hooks
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
+    targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
@@ -43,17 +48,20 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  labels:
-    argocd.argoproj.io/instance: my-app
   name: my-app-kustomize
+  namespace: argocd    
 spec:
   destination:
     namespace: kustomize-guestbook
-  project: default
+    server: https://kubernetes.default.svc    
+  project: manjeet
   source:
     path: kustomize-guestbook
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
+    targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
@@ -63,18 +71,20 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  labels:
-    argocd.argoproj.io/instance: my-app
   name: my-app-sync-waves
+  namespace: argocd   
 spec:
   destination:
     namespace: sync-waves
-  project: default
+    server: https://kubernetes.default.svc  
+  project: manjeet
   source:
     path: sync-waves
     repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
+    targetRevision: HEAD
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
-
