@@ -1,14 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  labels:
+    argocd.argoproj.io/instance: test
   name: my-app
 spec:
   destination:
     namespace: helm-guestbook
+  project: default
   source:
     path: helm-guestbook
-    repoURL: https://github.com/manjeetyadav19/argocd-example-apps.git
-  project: default
+    repoURL: 'https://github.com/manjeetyadav19/argocd-example-apps.git'
   syncPolicy:
     automated:
       prune: true
